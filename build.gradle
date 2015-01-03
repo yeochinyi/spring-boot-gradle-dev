@@ -1,0 +1,18 @@
+buildscript {
+    repositories { jcenter() }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.0.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'groovy'
+apply plugin: 'spring-boot'
+
+repositories { jcenter() }
+dependencies {
+	['web','jersey','actuator','remote-shell','undertow','log4j'].each{
+    compile("org.springframework.boot:spring-boot-starter-" + it)
+	}
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+}
